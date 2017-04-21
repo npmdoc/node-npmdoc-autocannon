@@ -1,0 +1,2554 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/mcollina/autocannon#readme">autocannon (v0.16.5)</a>
+</h1>
+<h4>Fast HTTP benchmarking tool written in Node.js</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.autocannon">module autocannon</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.autocannon">
+            function <span class="apidocSignatureSpan"></span>autocannon
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient">
+            function <span class="apidocSignatureSpan">autocannon.</span>httpClient
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.parseArguments">
+            function <span class="apidocSignatureSpan">autocannon.</span>parseArguments
+            <span class="apidocSignatureSpan">(argvs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator">
+            function <span class="apidocSignatureSpan">autocannon.</span>requestIterator
+            <span class="apidocSignatureSpan">(requests, defaults)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.run">
+            function <span class="apidocSignatureSpan">autocannon.</span>run
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.start">
+            function <span class="apidocSignatureSpan">autocannon.</span>start
+            <span class="apidocSignatureSpan">(argv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.track">
+            function <span class="apidocSignatureSpan">autocannon.</span>track
+            <span class="apidocSignatureSpan">(instance, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">autocannon.</span>httpClient.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">autocannon.</span>requestIterator.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.autocannon.httpClient">module autocannon.httpClient</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.httpClient">
+            function <span class="apidocSignatureSpan">autocannon.</span>httpClient
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.super_">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.autocannon.httpClient.prototype">module autocannon.httpClient.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype._connect">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_connect
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype._destroyConnection">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_destroyConnection
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype._doRequest">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_doRequest
+            <span class="apidocSignatureSpan">(rpi)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype._okayToUpdateCheck">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_okayToUpdateCheck
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype._resetConnection">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_resetConnection
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype.destroy">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>destroy
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype.getRequestBuffer">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>getRequestBuffer
+            <span class="apidocSignatureSpan">(newHeaders)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype.setBody">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setBody
+            <span class="apidocSignatureSpan">(newBody)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype.setHeaders">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setHeaders
+            <span class="apidocSignatureSpan">(newHeaders)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype.setHeadersAndBody">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setHeadersAndBody
+            <span class="apidocSignatureSpan">(newHeaders, newBody)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype.setRequest">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setRequest
+            <span class="apidocSignatureSpan">(newRequest)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.httpClient.prototype.setRequests">
+            function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setRequests
+            <span class="apidocSignatureSpan">(newRequests)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.autocannon.requestIterator">module autocannon.requestIterator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.requestIterator">
+            function <span class="apidocSignatureSpan">autocannon.</span>requestIterator
+            <span class="apidocSignatureSpan">(requests, defaults)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.super_">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.autocannon.requestIterator.prototype">module autocannon.requestIterator.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.move">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>move
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.nextRequest">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>nextRequest
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.nextRequestBuffer">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>nextRequestBuffer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.rebuildRequest">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>rebuildRequest
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.rebuildRequests">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>rebuildRequests
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.setBody">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setBody
+            <span class="apidocSignatureSpan">(newBody)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.setHeaders">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setHeaders
+            <span class="apidocSignatureSpan">(newHeaders)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.setHeadersAndBody">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setHeadersAndBody
+            <span class="apidocSignatureSpan">(newHeaders, newBody)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.setRequest">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setRequest
+            <span class="apidocSignatureSpan">(newRequest)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.requestIterator.prototype.setRequests">
+            function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setRequests
+            <span class="apidocSignatureSpan">(newRequests)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.autocannon.run">module autocannon.run</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.run.run">
+            function <span class="apidocSignatureSpan">autocannon.</span>run
+            <span class="apidocSignatureSpan">(opts, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.run.parseArguments">
+            function <span class="apidocSignatureSpan">autocannon.run.</span>parseArguments
+            <span class="apidocSignatureSpan">(argvs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.run.start">
+            function <span class="apidocSignatureSpan">autocannon.run.</span>start
+            <span class="apidocSignatureSpan">(argv)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.autocannon.run.track">
+            function <span class="apidocSignatureSpan">autocannon.run.</span>track
+            <span class="apidocSignatureSpan">(instance, opts)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.autocannon" id="apidoc.module.autocannon">module autocannon</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.autocannon" id="apidoc.element.autocannon.autocannon">
+        function <span class="apidocSignatureSpan"></span>autocannon
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(opts, cb) {
+  const cbPassedIn = (typeof cb === 'function')
+
+  cb = cb || noop
+
+  const tracker = new EE()
+
+  const latencies = new Histogram(1, 10000, 5)
+  const requests = new Histogram(1, 1000000, 3)
+  const throughput = new Histogram(1, 100000000000, 1)
+  const statusCodes = [
+    0, // 1xx
+    0, // 2xx
+    0, // 3xx
+    0, // 4xx
+    0  // 5xx
+  ]
+
+  opts = xtend(defaultOptions, opts)
+
+  // do error checking, if error, return
+  if (checkOptsForErrors()) return
+
+  // set tracker.opts here, so throwing over invalid opts and setting defaults etc.
+  // is done
+  tracker.opts = opts
+
+  if (opts.url.indexOf('http') !== 0) opts.url = 'http://' + opts.url
+  const url = URL.parse(opts.url)
+
+  let counter = 0
+  let bytes = 0
+  let errors = 0
+  let timeouts = 0
+  let totalBytes = 0
+  let totalRequests = 0
+  let totalCompletedRequests = 0
+  let amount = opts.amount
+  let stop = false
+  let restart = true
+  let numRunning = opts.connections
+  let startTime = Date.now()
+
+  // copy over fields so that the client
+  // performs the right HTTP requests
+  url.pipelining = opts.pipelining
+  url.method = opts.method
+  url.body = opts.body
+  url.headers = opts.headers
+  url.setupClient = opts.setupClient
+  url.timeout = opts.timeout
+  url.requests = opts.requests
+  url.reconnectRate = opts.reconnectRate
+  url.responseMax = amount || opts.maxConnectionRequests || opts.maxOverallRequests
+  url.rate = opts.connectionRate || opts.overallRate
+  url.idReplacement = opts.idReplacement
+
+  let clients = []
+  initialiseClients(clients)
+
+  if (!amount) {
+    var stopTimer = setTimeout(() =&gt; {
+      stop = true
+    }, opts.duration * 1000)
+  }
+
+  tracker.stop = () =&gt; {
+    stop = true
+    restart = false
+  }
+
+  const interval = reInterval(tickInterval, 1000)
+
+  // put the start emit in a setImmediate so trackers can be added, etc.
+  setImmediate(() =&gt; { tracker.emit('start') })
+
+  function tickInterval () {
+    totalBytes += bytes
+    totalCompletedRequests += counter
+    requests.record(counter)
+    throughput.record(bytes)
+    counter = 0
+    bytes = 0
+    tracker.emit('tick')
+
+    if (stop) {
+      if (stopTimer) clearTimeout(stopTimer)
+      interval.clear()
+      clients.forEach((client) =&gt; client.destroy())
+      let result = {
+        title: opts.title,
+        url: opts.url,
+        requests: histAsObj(requests, totalCompletedRequests),
+        latency: addPercentiles(latencies, histAsObj(latencies)),
+        throughput: histAsObj(throughput, totalBytes),
+        errors: errors,
+        timeouts: timeouts,
+        duration: Math.round((Date.now() - startTime) / 1000),
+        start: new Date(startTime),
+        finish: new Date(),
+        connections: opts.connections,
+        pipelining: opts.pipelining,
+        'non2xx': statusCodes[0] + statusCodes[2] + statusCodes[3] + statusCodes[4]
+      }
+      result.requests.sent = totalRequests
+      statusCodes.forEach((code, index) =&gt; { result[(index + 1) + 'xx'] = code })
+
+      tracker.emit('done', result)
+      if (!opts.forever) cb(null, result)
+
+      // the restart function
+      setImmediate(() =&gt; {
+        if (opts.forever &amp;&amp; restart) {
+          stop = false
+          stopTimer = setTimeout(() =&gt; {
+            stop = true
+          }, opts.duration * 1000)
+          errors = 0
+          timeouts = 0
+          totalBytes = 0
+          totalRequests = 0
+          totalCompletedRequests = 0
+          statusCodes.fill(0)
+          requests.reset()
+          latencies.reset()
+          throughput.reset()
+          startTime = Date.now()
+
+          // reinitialise clients
+          clients = []
+          initialiseClients(clients)
+
+          interval.reschedule(1000)
+          tracker.emit('start')
+        }
+      })
+    }
+  }
+
+  function initialiseClients (clients) {
+    for (let i = 0; i &lt; opts.connections; i++) {
+      if (!amount &amp;&amp; !opts.maxConnectionRequests &amp;&amp; opts.maxOverallRequests) {
+        url.responseMax = distributeNums(opts.maxOverallRequests, i)
+      }
+      if (amount) {
+        url.responseMax = distributeNums(amount, i)
+      }
+      if (!opts.connectionRate &amp; ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient" id="apidoc.element.autocannon.httpClient">
+        function <span class="apidocSignatureSpan">autocannon.</span>httpClient
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(opts) {
+  if (!(this instanceof Client)) {
+    return new Client(opts)
+  }
+  opts.setupClient = opts.setupClient || noop
+  opts.pipelining = opts.pipelining || 1
+  opts.port = opts.port || 80
+
+  this.opts = opts
+  this.timeout = (opts.timeout || 10) * 1000
+  this.secure = opts.protocol === 'https:'
+  if (this.secure &amp;&amp; this.opts.port === 80) this.opts.port = 443
+  this.parser = new HTTPParser(HTTPParser.RESPONSE)
+  this.requestIterator = new RequestIterator(opts.requests, opts)
+
+  this.reqsMade = 0
+
+  // used for request limiting
+  this.responseMax = opts.responseMax
+
+  // used for rate limiting
+  this.reqsMadeThisSecond = 0
+  this.rate = opts.rate
+
+  // used for forcing reconnects
+  this.reconnectRate = opts.reconnectRate
+
+  this.resData = new Array(opts.pipelining)
+  for (var i = 0; i &lt; this.resData.length; i++) {
+    this.resData[i] = {
+      bytes: 0,
+      headers: {},
+      startTime: [0, 0]
+    }
+  }
+
+  // cer = current expected response
+  this.cer = 0
+  this.destroyed = false
+
+  opts.setupClient(this)
+
+  const handleTimeout = () =&gt; {
+    // all pipelined requests have timed out here
+    this.resData.forEach(() =&gt; this.emit('timeout'))
+    this.cer = 0
+    this._destroyConnection()
+
+    // timeout has already occured, need to set a new timeoutTicker
+    this.timeoutTicker = retimer(handleTimeout, this.timeout)
+
+    this._connect()
+  }
+
+  if (this.rate) {
+    this.rateInterval = setInterval(() =&gt; {
+      this.reqsMadeThisSecond = 0
+      if (this.paused) this._doRequest(this.cer)
+      this.paused = false
+    }, 1000)
+  }
+
+  this.timeoutTicker = retimer(handleTimeout, this.timeout)
+  this.parser[HTTPParser.kOnHeaders] = () =&gt; {}
+  this.parser[HTTPParser.kOnHeadersComplete] = (opts) =&gt; {
+    this.emit('headers', opts)
+    this.resData[this.cer].headers = opts
+  }
+
+  this.parser[HTTPParser.kOnBody] = (body) =&gt; {
+    this.emit('body', body)
+  }
+
+  this.parser[HTTPParser.kOnMessageComplete] = () =&gt; {
+    let end = process.hrtime(this.resData[this.cer].startTime)
+    let responseTime = end[0] * 1e3 + end[1] / 1e6
+    this.emit('response', this.resData[this.cer].headers.statusCode, this.resData[this.cer].bytes, responseTime)
+    this.resData[this.cer].bytes = 0
+
+    if (!this.destroyed &amp;&amp; this.reconnectRate &amp;&amp; this.reqsMade % this.reconnectRate === 0) {
+      return this._resetConnection()
+    }
+
+    this.cer = this.cer === opts.pipelining - 1 ? 0 : this.cer++
+    this._doRequest(this.cer)
+  }
+
+  this._connect()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.parseArguments" id="apidoc.element.autocannon.parseArguments">
+        function <span class="apidocSignatureSpan">autocannon.</span>parseArguments
+        <span class="apidocSignatureSpan">(argvs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseArguments(argvs) {
+  const argv = minimist(argvs, {
+    boolean: ['json', 'n', 'help', 'renderLatencyTable', 'renderProgressBar', 'forever', 'idReplacement'],
+    alias: {
+      connections: 'c',
+      pipelining: 'p',
+      timeout: 't',
+      duration: 'd',
+      amount: 'a',
+      json: 'j',
+      renderLatencyTable: ['l', 'latency'],
+      method: 'm',
+      headers: ['H', 'header'],
+      body: 'b',
+      bailout: 'B',
+      input: 'i',
+      maxConnectionRequests: 'M',
+      maxOverallRequests: 'O',
+      connectionRate: 'r',
+      overallRate: 'R',
+      reconnectRate: 'D',
+      renderProgressBar: 'progress',
+      title: 'T',
+      version: 'v',
+      forever: 'f',
+      idReplacement: 'I',
+      help: 'h'
+    },
+    default: {
+      connections: 10,
+      timeout: 10,
+      pipelining: 1,
+      duration: 10,
+      reconnectRate: 0,
+      renderLatencyTable: false,
+      renderProgressBar: true,
+      json: false,
+      forever: false,
+      method: 'GET',
+      idReplacement: false
+    }
+  })
+
+  argv.url = argv._[0]
+
+  // support -n to disable the progress bar and results table
+  if (argv.n) {
+    argv.renderProgressBar = false
+    argv.renderResultsTable = false
+  }
+
+  if (argv.version) {
+    console.log('autocannon', 'v' + require('./package').version)
+    console.log('node', process.version)
+    return
+  }
+
+  if (!argv.url || argv.help) {
+    console.error(help)
+    return
+  }
+
+  if (argv.input) {
+    argv.body = fs.readFileSync(argv.input)
+  }
+
+  if (argv.headers) {
+    if (!Array.isArray(argv.headers)) {
+      argv.headers = [argv.headers]
+    }
+
+    argv.headers = argv.headers.reduce((obj, header) =&gt; {
+      const index = header.indexOf('=')
+      obj[header.slice(0, index)] = header.slice(index + 1)
+      return obj
+    }, {})
+  }
+
+  return argv
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator" id="apidoc.element.autocannon.requestIterator">
+        function <span class="apidocSignatureSpan">autocannon.</span>requestIterator
+        <span class="apidocSignatureSpan">(requests, defaults)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RequestIterator(requests, defaults) {
+  if (!(this instanceof RequestIterator)) {
+    return new RequestIterator(requests, defaults)
+  }
+
+  this.reqDefaults = defaults
+  this.requestBuilder = requestBuilder(defaults)
+  this.setRequests(requests)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.run" id="apidoc.element.autocannon.run">
+        function <span class="apidocSignatureSpan">autocannon.</span>run
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(opts, cb) {
+  const cbPassedIn = (typeof cb === 'function')
+
+  cb = cb || noop
+
+  const tracker = new EE()
+
+  const latencies = new Histogram(1, 10000, 5)
+  const requests = new Histogram(1, 1000000, 3)
+  const throughput = new Histogram(1, 100000000000, 1)
+  const statusCodes = [
+    0, // 1xx
+    0, // 2xx
+    0, // 3xx
+    0, // 4xx
+    0  // 5xx
+  ]
+
+  opts = xtend(defaultOptions, opts)
+
+  // do error checking, if error, return
+  if (checkOptsForErrors()) return
+
+  // set tracker.opts here, so throwing over invalid opts and setting defaults etc.
+  // is done
+  tracker.opts = opts
+
+  if (opts.url.indexOf('http') !== 0) opts.url = 'http://' + opts.url
+  const url = URL.parse(opts.url)
+
+  let counter = 0
+  let bytes = 0
+  let errors = 0
+  let timeouts = 0
+  let totalBytes = 0
+  let totalRequests = 0
+  let totalCompletedRequests = 0
+  let amount = opts.amount
+  let stop = false
+  let restart = true
+  let numRunning = opts.connections
+  let startTime = Date.now()
+
+  // copy over fields so that the client
+  // performs the right HTTP requests
+  url.pipelining = opts.pipelining
+  url.method = opts.method
+  url.body = opts.body
+  url.headers = opts.headers
+  url.setupClient = opts.setupClient
+  url.timeout = opts.timeout
+  url.requests = opts.requests
+  url.reconnectRate = opts.reconnectRate
+  url.responseMax = amount || opts.maxConnectionRequests || opts.maxOverallRequests
+  url.rate = opts.connectionRate || opts.overallRate
+  url.idReplacement = opts.idReplacement
+
+  let clients = []
+  initialiseClients(clients)
+
+  if (!amount) {
+    var stopTimer = setTimeout(() =&gt; {
+      stop = true
+    }, opts.duration * 1000)
+  }
+
+  tracker.stop = () =&gt; {
+    stop = true
+    restart = false
+  }
+
+  const interval = reInterval(tickInterval, 1000)
+
+  // put the start emit in a setImmediate so trackers can be added, etc.
+  setImmediate(() =&gt; { tracker.emit('start') })
+
+  function tickInterval () {
+    totalBytes += bytes
+    totalCompletedRequests += counter
+    requests.record(counter)
+    throughput.record(bytes)
+    counter = 0
+    bytes = 0
+    tracker.emit('tick')
+
+    if (stop) {
+      if (stopTimer) clearTimeout(stopTimer)
+      interval.clear()
+      clients.forEach((client) =&gt; client.destroy())
+      let result = {
+        title: opts.title,
+        url: opts.url,
+        requests: histAsObj(requests, totalCompletedRequests),
+        latency: addPercentiles(latencies, histAsObj(latencies)),
+        throughput: histAsObj(throughput, totalBytes),
+        errors: errors,
+        timeouts: timeouts,
+        duration: Math.round((Date.now() - startTime) / 1000),
+        start: new Date(startTime),
+        finish: new Date(),
+        connections: opts.connections,
+        pipelining: opts.pipelining,
+        'non2xx': statusCodes[0] + statusCodes[2] + statusCodes[3] + statusCodes[4]
+      }
+      result.requests.sent = totalRequests
+      statusCodes.forEach((code, index) =&gt; { result[(index + 1) + 'xx'] = code })
+
+      tracker.emit('done', result)
+      if (!opts.forever) cb(null, result)
+
+      // the restart function
+      setImmediate(() =&gt; {
+        if (opts.forever &amp;&amp; restart) {
+          stop = false
+          stopTimer = setTimeout(() =&gt; {
+            stop = true
+          }, opts.duration * 1000)
+          errors = 0
+          timeouts = 0
+          totalBytes = 0
+          totalRequests = 0
+          totalCompletedRequests = 0
+          statusCodes.fill(0)
+          requests.reset()
+          latencies.reset()
+          throughput.reset()
+          startTime = Date.now()
+
+          // reinitialise clients
+          clients = []
+          initialiseClients(clients)
+
+          interval.reschedule(1000)
+          tracker.emit('start')
+        }
+      })
+    }
+  }
+
+  function initialiseClients (clients) {
+    for (let i = 0; i &lt; opts.connections; i++) {
+      if (!amount &amp;&amp; !opts.maxConnectionRequests &amp;&amp; opts.maxOverallRequests) {
+        url.responseMax = distributeNums(opts.maxOverallRequests, i)
+      }
+      if (amount) {
+        url.responseMax = distributeNums(amount, i)
+      }
+      if (!opts.connectionRate &amp; ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.start" id="apidoc.element.autocannon.start">
+        function <span class="apidocSignatureSpan">autocannon.</span>start
+        <span class="apidocSignatureSpan">(argv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function start(argv) {
+  if (!argv) {
+    // we are printing the help
+    return
+  }
+
+  const tracker = run(argv)
+
+  tracker.on('done', (result) =&gt; {
+    if (argv.json) {
+      console.log(JSON.stringify(result))
+    }
+  })
+
+  tracker.on('error', (err) =&gt; {
+    if (err) {
+      throw err
+    }
+  })
+
+  // if not rendering json, or if std isn't a tty, track progress
+  if (!argv.json || !process.stdout.isTTY) track(tracker, argv)
+
+  process.once('SIGINT', () =&gt; {
+    tracker.stop()
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.track" id="apidoc.element.autocannon.track">
+        function <span class="apidocSignatureSpan">autocannon.</span>track
+        <span class="apidocSignatureSpan">(instance, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function track(instance, opts) {
+  if (!instance) {
+    throw new Error('instance required for tracking')
+  }
+
+  opts = xtend(defaults, opts)
+
+  const chalk = new Chalk.constructor({ enabled: testColorSupport({ stream: opts.outputStream }) })
+  // this default needs to be set after chalk is setup, because chalk is now local to this func
+  opts.progressBarString = opts.progressBarString || `${chalk.green('running')} [:bar] :percent`
+
+  const iOpts = instance.opts
+  let durationProgressBar
+  let amountProgressBar
+
+  instance.on('start', () =&gt; {
+    if (opts.renderProgressBar) {
+      let msg = `${iOpts.connections} connections`
+
+      if (iOpts.pipelining &gt; 1) {
+        msg += ` with ${iOpts.pipelining} pipelining factor`
+      }
+
+      if (!iOpts.amount) {
+        logToStream(`Running ${iOpts.duration}s test @ ${iOpts.url}\n${msg}\n`)
+
+        durationProgressBar = trackDuration(instance, opts, iOpts)
+      } else {
+        logToStream(`Running ${iOpts.amount} requests test @ ${iOpts.url}\n${msg}\n`)
+
+        amountProgressBar = trackAmount(instance, opts, iOpts)
+      }
+    }
+  })
+
+  // add listeners for progress bar to instance here so they aren't
+  // added on restarting, causing listener leaks
+  // note: Attempted to curry the functions below, but that breaks the functionality
+  // as they use the scope/closure of the progress bar variables to allow them to be reset
+  if (opts.renderProgressBar &amp;&amp; opts.outputStream.isTTY) {
+    if (!iOpts.amount) { // duration progress bar
+      instance.on('tick', () =&gt; { durationProgressBar.tick() })
+      instance.on('done', () =&gt; { durationProgressBar.tick(iOpts.duration - 1) })
+      process.once('SIGINT', () =&gt; { durationProgressBar.tick(iOpts.duration - 1) })
+    } else { // amount progress bar
+      instance.on('response', () =&gt; { amountProgressBar.tick() })
+      instance.on('reqError', () =&gt; { amountProgressBar.tick() })
+      instance.on('done', () =&gt; { amountProgressBar.tick(iOpts.amount - 1) })
+      process.once('SIGINT', () =&gt; { amountProgressBar.tick(iOpts.amount - 1) })
+    }
+  }
+
+  instance.on('done', (result) =&gt; {
+    // the code below this `if` just renders the results table...
+    // if the user doesn't want to render the table, we can just return early
+    if (!opts.renderResultsTable) return
+
+    const out = table([
+      asColor(chalk.cyan, ['Stat', 'Avg', 'Stdev', 'Max']),
+      asRow(chalk.bold('Latency (ms)'), result.latency),
+      asRow(chalk.bold('Req/Sec'), result.requests),
+      asRow(chalk.bold('Bytes/Sec'), asBytes(result.throughput))
+    ], {
+      border: getBorderCharacters('void'),
+      columnDefault: {
+        paddingLeft: 0,
+        paddingRight: 1
+      },
+      drawHorizontalLine: () =&gt; false
+    })
+
+    logToStream(out)
+
+    if (opts.renderLatencyTable) {
+      const latency = table([
+        asColor(chalk.cyan, ['Percentile', 'Latency (ms)'])
+      ].concat(percentiles.map((perc) =&gt; {
+        const key = ('p' + perc).replace('.', '')
+        return [
+          chalk.bold('' + perc),
+          result.latency[key]
+        ]
+      })), {
+        border: getBorderCharacters('void'),
+        columnDefault: {
+          paddingLeft: 0,
+          paddingRight: 6
+        },
+        drawHorizontalLine: () =&gt; false
+      })
+
+      logToStream(latency)
+    }
+
+    if (result.non2xx) {
+      logToStream(`${result['2xx']} 2xx responses, ${result.non2xx} non 2xx responses`)
+    }
+    logToStream(`${format(result.requests.total)} requests in ${result.duration}s, ${prettyBytes(result.throughput.total)} read`)
+    if (result.errors) {
+      logToStream(`${format(result.errors)} errors (${format(result.timeouts)} timeouts)`)
+    }
+  })
+
+  function logToStream (msg) {
+    opts.outputStream.write(msg + '\n')
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `forever`: A `Boolean` which allows you to setup an instance of autocannon that restarts indefinatly after emiting results with
+ the `done` event. Useful for efficiently restarting your instance. To stop running forever, you must cause a `SIGINT` or call the
+ `.stop()` function on your instance. _OPTIONAL_ default: `false`
+* `cb`: The callback which is called on completion of a benchmark. Takes the following params. _OPTIONAL_.
+* `err`: If there was an error encountered with the run.
+* `results`: The results of the run.
+
+**Returns** an instance/event emitter for tracking progress, etc.
+
+### autocannon.<span class="apidocCodeKeywordSpan">track</span>(instance[, opts])
+
+Track the progress of your autocannon, programmatically.
+
+* `instance`: The instance of autocannon. _REQUIRED_.
+* `opts`: Configuration options for tracking. This can have the following attibutes. _OPTIONAL_.
+* `outputStream`: The stream to output to. default: `process.stderr`.
+* `renderProgressBar`: A truthy value to enable the rendering of the progress bar. default: `true`.
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.autocannon.httpClient" id="apidoc.module.autocannon.httpClient">module autocannon.httpClient</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.httpClient" id="apidoc.element.autocannon.httpClient.httpClient">
+        function <span class="apidocSignatureSpan">autocannon.</span>httpClient
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(opts) {
+  if (!(this instanceof Client)) {
+    return new Client(opts)
+  }
+  opts.setupClient = opts.setupClient || noop
+  opts.pipelining = opts.pipelining || 1
+  opts.port = opts.port || 80
+
+  this.opts = opts
+  this.timeout = (opts.timeout || 10) * 1000
+  this.secure = opts.protocol === 'https:'
+  if (this.secure &amp;&amp; this.opts.port === 80) this.opts.port = 443
+  this.parser = new HTTPParser(HTTPParser.RESPONSE)
+  this.requestIterator = new RequestIterator(opts.requests, opts)
+
+  this.reqsMade = 0
+
+  // used for request limiting
+  this.responseMax = opts.responseMax
+
+  // used for rate limiting
+  this.reqsMadeThisSecond = 0
+  this.rate = opts.rate
+
+  // used for forcing reconnects
+  this.reconnectRate = opts.reconnectRate
+
+  this.resData = new Array(opts.pipelining)
+  for (var i = 0; i &lt; this.resData.length; i++) {
+    this.resData[i] = {
+      bytes: 0,
+      headers: {},
+      startTime: [0, 0]
+    }
+  }
+
+  // cer = current expected response
+  this.cer = 0
+  this.destroyed = false
+
+  opts.setupClient(this)
+
+  const handleTimeout = () =&gt; {
+    // all pipelined requests have timed out here
+    this.resData.forEach(() =&gt; this.emit('timeout'))
+    this.cer = 0
+    this._destroyConnection()
+
+    // timeout has already occured, need to set a new timeoutTicker
+    this.timeoutTicker = retimer(handleTimeout, this.timeout)
+
+    this._connect()
+  }
+
+  if (this.rate) {
+    this.rateInterval = setInterval(() =&gt; {
+      this.reqsMadeThisSecond = 0
+      if (this.paused) this._doRequest(this.cer)
+      this.paused = false
+    }, 1000)
+  }
+
+  this.timeoutTicker = retimer(handleTimeout, this.timeout)
+  this.parser[HTTPParser.kOnHeaders] = () =&gt; {}
+  this.parser[HTTPParser.kOnHeadersComplete] = (opts) =&gt; {
+    this.emit('headers', opts)
+    this.resData[this.cer].headers = opts
+  }
+
+  this.parser[HTTPParser.kOnBody] = (body) =&gt; {
+    this.emit('body', body)
+  }
+
+  this.parser[HTTPParser.kOnMessageComplete] = () =&gt; {
+    let end = process.hrtime(this.resData[this.cer].startTime)
+    let responseTime = end[0] * 1e3 + end[1] / 1e6
+    this.emit('response', this.resData[this.cer].headers.statusCode, this.resData[this.cer].bytes, responseTime)
+    this.resData[this.cer].bytes = 0
+
+    if (!this.destroyed &amp;&amp; this.reconnectRate &amp;&amp; this.reqsMade % this.reconnectRate === 0) {
+      return this._resetConnection()
+    }
+
+    this.cer = this.cer === opts.pipelining - 1 ? 0 : this.cer++
+    this._doRequest(this.cer)
+  }
+
+  this._connect()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.super_" id="apidoc.element.autocannon.httpClient.super_">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.autocannon.httpClient.prototype" id="apidoc.module.autocannon.httpClient.prototype">module autocannon.httpClient.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype._connect" id="apidoc.element.autocannon.httpClient.prototype._connect">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_connect
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_connect = function () {
+  if (this.secure) {
+    this.conn = tls.connect(this.opts.port, this.opts.hostname, { rejectUnauthorized: false })
+  } else {
+    this.conn = net.connect(this.opts.port, this.opts.hostname)
+  }
+
+  this.conn.on('error', (error) =&gt; {
+    this.emit('connError', error)
+    if (!this.destroyed) this._connect()
+  })
+
+  this.conn.on('data', (chunk) =&gt; {
+    this.resData[this.cer].bytes += chunk.length
+    this.parser.execute(chunk)
+  })
+
+  this.conn.on('end', () =&gt; {
+    if (!this.destroyed) this._connect()
+  })
+
+  for (let i = 0; i &lt; this.opts.pipelining; i++) {
+    this._doRequest(i)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.resData.forEach(() =&gt; this.emit('timeout'))
+  this.cer = 0
+  this._destroyConnection()
+
+  // timeout has already occured, need to set a new timeoutTicker
+  this.timeoutTicker = retimer(handleTimeout, this.timeout)
+
+  this.<span class="apidocCodeKeywordSpan">_connect</span>()
+}
+
+if (this.rate) {
+  this.rateInterval = setInterval(() =&gt; {
+    this.reqsMadeThisSecond = 0
+    if (this.paused) this._doRequest(this.cer)
+    this.paused = false
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype._destroyConnection" id="apidoc.element.autocannon.httpClient.prototype._destroyConnection">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_destroyConnection
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_destroyConnection = function () {
+  this.conn.removeAllListeners('error')
+  this.conn.removeAllListeners('end')
+  this.conn.on('error', () =&gt; {})
+  this.conn.destroy()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+opts.setupClient(this)
+
+const handleTimeout = () =&gt; {
+  // all pipelined requests have timed out here
+  this.resData.forEach(() =&gt; this.emit('timeout'))
+  this.cer = 0
+  this.<span class="apidocCodeKeywordSpan">_destroyConnection</span>()
+
+  // timeout has already occured, need to set a new timeoutTicker
+  this.timeoutTicker = retimer(handleTimeout, this.timeout)
+
+  this._connect()
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype._doRequest" id="apidoc.element.autocannon.httpClient.prototype._doRequest">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_doRequest
+        <span class="apidocSignatureSpan">(rpi)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_doRequest = function (rpi) {
+  if (!this.rate || (this.rate &amp;&amp; this.reqsMadeThisSecond++ &lt; this.rate)) {
+    if (!this.destroyed &amp;&amp; this.responseMax &amp;&amp; this.reqsMade &gt;= this.responseMax) {
+      return this.destroy()
+    }
+    this.emit('request')
+    this.resData[rpi].startTime = process.hrtime()
+    this.conn.write(this.requestIterator.move())
+    this.timeoutTicker.reschedule(this.timeout)
+    this.reqsMade++
+  } else {
+    this.paused = true
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  this._connect()
+}
+
+if (this.rate) {
+  this.rateInterval = setInterval(() =&gt; {
+    this.reqsMadeThisSecond = 0
+    if (this.paused) this.<span class="apidocCodeKeywordSpan">_doRequest</span>(this.cer)
+    this.paused = false
+  }, 1000)
+}
+
+this.timeoutTicker = retimer(handleTimeout, this.timeout)
+this.parser[HTTPParser.kOnHeaders] = () =&gt; {}
+this.parser[HTTPParser.kOnHeadersComplete] = (opts) =&gt; {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype._okayToUpdateCheck" id="apidoc.element.autocannon.httpClient.prototype._okayToUpdateCheck">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_okayToUpdateCheck
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_okayToUpdateCheck = function () {
+  if (this.opts.pipelining &gt; 1) {
+    throw new Error('cannot update requests when the piplining factor is greater than 1')
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+Client.prototype.getRequestBuffer = function (newHeaders) {
+  return this.requestIterator.currentRequest.requestBuffer
+}
+
+Client.prototype.setHeaders = function (newHeaders) {
+  this.<span class="apidocCodeKeywordSpan">_okayToUpdateCheck</span>()
+  this.requestIterator.setHeaders(newHeaders)
+}
+
+Client.prototype.setBody = function (newBody) {
+  this._okayToUpdateCheck()
+  this.requestIterator.setBody(newBody)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype._resetConnection" id="apidoc.element.autocannon.httpClient.prototype._resetConnection">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>_resetConnection
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_resetConnection = function () {
+  this._destroyConnection()
+  this._connect()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.parser[HTTPParser.kOnMessageComplete] = () =&gt; {
+  let end = process.hrtime(this.resData[this.cer].startTime)
+  let responseTime = end[0] * 1e3 + end[1] / 1e6
+  this.emit('response', this.resData[this.cer].headers.statusCode, this.resData[this.cer].bytes, responseTime)
+  this.resData[this.cer].bytes = 0
+
+  if (!this.destroyed &amp;&amp; this.reconnectRate &amp;&amp; this.reqsMade % this.reconnectRate === 0) {
+    return this.<span class="apidocCodeKeywordSpan">_resetConnection</span>()
+  }
+
+  this.cer = this.cer === opts.pipelining - 1 ? 0 : this.cer++
+  this._doRequest(this.cer)
+}
+
+this._connect()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype.destroy" id="apidoc.element.autocannon.httpClient.prototype.destroy">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>destroy
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function () {
+  if (!this.destroyed) {
+    this.destroyed = true
+    this.timeoutTicker.clear()
+    if (this.rate) clearInterval(this.rateInterval)
+    this.emit('done')
+    this._destroyConnection()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+}
+
+// rpi = request pipelining index
+Client.prototype._doRequest = function (rpi) {
+if (!this.rate || (this.rate &amp;&amp; this.reqsMadeThisSecond++ &lt; this.rate)) {
+  if (!this.destroyed &amp;&amp; this.responseMax &amp;&amp; this.reqsMade &gt;= this.responseMax) {
+    return this.<span class="apidocCodeKeywordSpan">destroy</span>()
+  }
+  this.emit('request')
+  this.resData[rpi].startTime = process.hrtime()
+  this.conn.write(this.requestIterator.move())
+  this.timeoutTicker.reschedule(this.timeout)
+  this.reqsMade++
+} else {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype.getRequestBuffer" id="apidoc.element.autocannon.httpClient.prototype.getRequestBuffer">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>getRequestBuffer
+        <span class="apidocSignatureSpan">(newHeaders)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRequestBuffer = function (newHeaders) {
+  return this.requestIterator.currentRequest.requestBuffer
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype.setBody" id="apidoc.element.autocannon.httpClient.prototype.setBody">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setBody
+        <span class="apidocSignatureSpan">(newBody)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setBody = function (newBody) {
+  this._okayToUpdateCheck()
+  this.requestIterator.setBody(newBody)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `error`: Emitted if there is an error during the setup phase of autocannon.
+
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.<span class="apidocCodeKeywordSpan">setBody</span>(body)`: Used to modify the body of the request this client iterator
+ is currently on. `body` should be a `String` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype.setHeaders" id="apidoc.element.autocannon.httpClient.prototype.setHeaders">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setHeaders
+        <span class="apidocSignatureSpan">(newHeaders)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setHeaders = function (newHeaders) {
+  this._okayToUpdateCheck()
+  this.requestIterator.setHeaders(newHeaders)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `reqError`: Emitted in the case of a request error e.g. a timeout.
+* `error`: Emitted if there is an error during the setup phase of autocannon.
+
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.<span class="apidocCodeKeywordSpan">setHeaders</span>(headers)`: Used to modify the headers of the request this client
+ iterator is currently on. `headers` should be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype.setHeadersAndBody" id="apidoc.element.autocannon.httpClient.prototype.setHeadersAndBody">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setHeadersAndBody
+        <span class="apidocSignatureSpan">(newHeaders, newBody)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setHeadersAndBody = function (newHeaders, newBody) {
+  this._okayToUpdateCheck()
+  this.requestIterator.setHeadersAndBody(newHeaders, newBody)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.<span class="apidocCodeKeywordSpan">setHeadersAndBody</span>(headers, body)`: Used to modify the both the headers and
+body this client iterator is currently on.`headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype.setRequest" id="apidoc.element.autocannon.httpClient.prototype.setRequest">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setRequest
+        <span class="apidocSignatureSpan">(newRequest)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setRequest = function (newRequest) {
+  this._okayToUpdateCheck()
+  this.requestIterator.setRequest(newRequest)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.<span class="apidocCodeKeywordSpan">setRequest</span>(request)`: Used to modify the both the entire request that this
+client iterator is currently on. Can have `headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into
+ the autocannon instance when it was created. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+
+* `headers`: Emitted when a request sent from this client has received the headers of its reply. This received an `Object` as the
+ parameter.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.httpClient.prototype.setRequests" id="apidoc.element.autocannon.httpClient.prototype.setRequests">
+        function <span class="apidocSignatureSpan">autocannon.httpClient.prototype.</span>setRequests
+        <span class="apidocSignatureSpan">(newRequests)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setRequests = function (newRequests) {
+  this._okayToUpdateCheck()
+  this.requestIterator.setRequests(newRequests)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.<span class="apidocCodeKeywordSpan">setRequests</span>(newRequests)`: Used to overwrite the entire requests array that
+ was passed into the instance on initiation. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+
+* `headers`: Emitted when a request sent from this client has received the headers of its reply. This received an `Object` as the
+ parameter.
+* `body`: Emitted when a request sent from this client has received the body of a reply. This receives a `Buffer` as the parameter
+.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.autocannon.requestIterator" id="apidoc.module.autocannon.requestIterator">module autocannon.requestIterator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.requestIterator" id="apidoc.element.autocannon.requestIterator.requestIterator">
+        function <span class="apidocSignatureSpan">autocannon.</span>requestIterator
+        <span class="apidocSignatureSpan">(requests, defaults)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RequestIterator(requests, defaults) {
+  if (!(this instanceof RequestIterator)) {
+    return new RequestIterator(requests, defaults)
+  }
+
+  this.reqDefaults = defaults
+  this.requestBuilder = requestBuilder(defaults)
+  this.setRequests(requests)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.super_" id="apidoc.element.autocannon.requestIterator.super_">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Object() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.autocannon.requestIterator.prototype" id="apidoc.module.autocannon.requestIterator.prototype">module autocannon.requestIterator.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.move" id="apidoc.element.autocannon.requestIterator.prototype.move">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>move
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">move = function () {
+  // get the current buffer and proceed to next request
+  let ret = this.currentRequest.requestBuffer
+  this.nextRequest()
+  return this.reqDefaults.idReplacement
+    ? new Buffer(ret.toString().replace(/\[&lt;id&gt;\]/g, hyperid()))
+    : ret
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Client.prototype._doRequest = function (rpi) {
+  if (!this.rate || (this.rate &amp;&amp; this.reqsMadeThisSecond++ &lt; this.rate)) {
+    if (!this.destroyed &amp;&amp; this.responseMax &amp;&amp; this.reqsMade &gt;= this.responseMax) {
+      return this.destroy()
+    }
+    this.emit('request')
+    this.resData[rpi].startTime = process.hrtime()
+    this.conn.write(this.requestIterator.<span class="apidocCodeKeywordSpan">move</span>())
+    this.timeoutTicker.reschedule(this.timeout)
+    this.reqsMade++
+  } else {
+    this.paused = true
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.nextRequest" id="apidoc.element.autocannon.requestIterator.prototype.nextRequest">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>nextRequest
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nextRequest = function () {
+  ++this.currentRequestIndex
+  this.currentRequestIndex = this.currentRequestIndex &lt; this.requests.length ? this.currentRequestIndex : 0
+  this.currentRequest = this.requests[this.currentRequestIndex]
+  return this.currentRequest
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this.currentRequestIndex = this.currentRequestIndex &lt; this.requests.length ? this.currentRequestIndex : 0
+this.currentRequest = this.requests[this.currentRequestIndex]
+return this.currentRequest
+}
+
+RequestIterator.prototype.nextRequestBuffer = function () {
+// get next request
+this.<span class="apidocCodeKeywordSpan">nextRequest</span>()
+return this.currentRequest.requestBuffer
+}
+
+RequestIterator.prototype.move = function () {
+// get the current buffer and proceed to next request
+let ret = this.currentRequest.requestBuffer
+this.nextRequest()
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.nextRequestBuffer" id="apidoc.element.autocannon.requestIterator.prototype.nextRequestBuffer">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>nextRequestBuffer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nextRequestBuffer = function () {
+  // get next request
+  this.nextRequest()
+  return this.currentRequest.requestBuffer
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.rebuildRequest" id="apidoc.element.autocannon.requestIterator.prototype.rebuildRequest">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>rebuildRequest
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rebuildRequest = function () {
+  this.currentRequest.requestBuffer = this.requestBuilder(this.currentRequest)
+  this.requests[this.currentRequestIndex] = this.currentRequest
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.requests.forEach((request) =&gt; {
+    request.requestBuffer = this.requestBuilder(request)
+  })
+}
+
+RequestIterator.prototype.setHeaders = function (newHeaders) {
+  this.currentRequest.headers = newHeaders || {}
+  this.<span class="apidocCodeKeywordSpan">rebuildRequest</span>()
+}
+
+RequestIterator.prototype.setBody = function (newBody) {
+  this.currentRequest.body = newBody || new Buffer(0)
+  this.rebuildRequest()
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.rebuildRequests" id="apidoc.element.autocannon.requestIterator.prototype.rebuildRequests">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>rebuildRequests
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">rebuildRequests = function () {
+  this.requests.forEach((request) =&gt; {
+    request.requestBuffer = this.requestBuilder(request)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    : ret
+}
+
+RequestIterator.prototype.setRequests = function (newRequests) {
+  this.requests = newRequests || [{}]
+  this.currentRequestIndex = 0
+  this.currentRequest = this.requests[0]
+  this.<span class="apidocCodeKeywordSpan">rebuildRequests</span>()
+}
+
+RequestIterator.prototype.rebuildRequests = function () {
+  this.requests.forEach((request) =&gt; {
+    request.requestBuffer = this.requestBuilder(request)
+  })
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.setBody" id="apidoc.element.autocannon.requestIterator.prototype.setBody">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setBody
+        <span class="apidocSignatureSpan">(newBody)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setBody = function (newBody) {
+  this.currentRequest.body = newBody || new Buffer(0)
+  this.rebuildRequest()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `error`: Emitted if there is an error during the setup phase of autocannon.
+
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.<span class="apidocCodeKeywordSpan">setBody</span>(body)`: Used to modify the body of the request this client iterator
+ is currently on. `body` should be a `String` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.setHeaders" id="apidoc.element.autocannon.requestIterator.prototype.setHeaders">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setHeaders
+        <span class="apidocSignatureSpan">(newHeaders)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setHeaders = function (newHeaders) {
+  this.currentRequest.headers = newHeaders || {}
+  this.rebuildRequest()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `reqError`: Emitted in the case of a request error e.g. a timeout.
+* `error`: Emitted if there is an error during the setup phase of autocannon.
+
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.<span class="apidocCodeKeywordSpan">setHeaders</span>(headers)`: Used to modify the headers of the request this client
+ iterator is currently on. `headers` should be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.setHeadersAndBody" id="apidoc.element.autocannon.requestIterator.prototype.setHeadersAndBody">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setHeadersAndBody
+        <span class="apidocSignatureSpan">(newHeaders, newBody)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setHeadersAndBody = function (newHeaders, newBody) {
+  this.currentRequest.headers = newHeaders || {}
+  this.currentRequest.body = newBody || new Buffer(0)
+  this.rebuildRequest()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.<span class="apidocCodeKeywordSpan">setHeadersAndBody</span>(headers, body)`: Used to modify the both the headers and
+body this client iterator is currently on.`headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.setRequest" id="apidoc.element.autocannon.requestIterator.prototype.setRequest">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setRequest
+        <span class="apidocSignatureSpan">(newRequest)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setRequest = function (newRequest) {
+  this.currentRequest = newRequest || {}
+  this.rebuildRequest()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+### `Client` API
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.<span class="apidocCodeKeywordSpan">setRequest</span>(request)`: Used to modify the both the entire request that this
+client iterator is currently on. Can have `headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into
+ the autocannon instance when it was created. `Note: call this when modifying multiple request values for faster encoding`
+* `client.setRequests(newRequests)`: Used to overwrite the entire requests array that was passed into the instance on initiation
+. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+
+* `headers`: Emitted when a request sent from this client has received the headers of its reply. This received an `Object` as the
+ parameter.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.requestIterator.prototype.setRequests" id="apidoc.element.autocannon.requestIterator.prototype.setRequests">
+        function <span class="apidocSignatureSpan">autocannon.requestIterator.prototype.</span>setRequests
+        <span class="apidocSignatureSpan">(newRequests)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setRequests = function (newRequests) {
+  this.requests = newRequests || [{}]
+  this.currentRequestIndex = 0
+  this.currentRequest = this.requests[0]
+  this.rebuildRequests()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+This object is passed as the first parameter of both the `setupClient` function and the `response` event from an autocannon instance
+. You can use this to modify the requests you are sending while benchmarking. This is also an `EventEmitter`, with the events and
+ their params listed below.
+
+* `client.setHeaders(headers)`: Used to modify the headers of the request this client iterator is currently on. `headers` should
+ be an `Object`, or `undefined` if you want to remove your headers.
+* `client.setBody(body)`: Used to modify the body of the request this client iterator is currently on. `body` should be a `String
+` or `Buffer`, or `undefined` if you want to remove the body.
+* `client.setHeadersAndBody(headers, body)`: Used to modify the both the headers and body this client iterator is currently on.`
+headers` and `body` should take the same form as above.
+* `client.setRequest(request)`: Used to modify the both the entire request that this client iterator is currently on. Can have `
+headers`, `body`, `method`, or `path` as attributes. Defaults to the values passed into the autocannon instance when it was created
+. `Note: call this when modifying multiple request values for faster encoding`
+* `client.<span class="apidocCodeKeywordSpan">setRequests</span>(newRequests)`: Used to overwrite the entire requests array that
+ was passed into the instance on initiation. `Note: call this when modifying multiple requests for faster encoding`
+
+### `Client` events
+
+The events a `Client` can emit are listed here:
+
+* `headers`: Emitted when a request sent from this client has received the headers of its reply. This received an `Object` as the
+ parameter.
+* `body`: Emitted when a request sent from this client has received the body of a reply. This receives a `Buffer` as the parameter
+.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.autocannon.run" id="apidoc.module.autocannon.run">module autocannon.run</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.run.run" id="apidoc.element.autocannon.run.run">
+        function <span class="apidocSignatureSpan">autocannon.</span>run
+        <span class="apidocSignatureSpan">(opts, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function run(opts, cb) {
+  const cbPassedIn = (typeof cb === 'function')
+
+  cb = cb || noop
+
+  const tracker = new EE()
+
+  const latencies = new Histogram(1, 10000, 5)
+  const requests = new Histogram(1, 1000000, 3)
+  const throughput = new Histogram(1, 100000000000, 1)
+  const statusCodes = [
+    0, // 1xx
+    0, // 2xx
+    0, // 3xx
+    0, // 4xx
+    0  // 5xx
+  ]
+
+  opts = xtend(defaultOptions, opts)
+
+  // do error checking, if error, return
+  if (checkOptsForErrors()) return
+
+  // set tracker.opts here, so throwing over invalid opts and setting defaults etc.
+  // is done
+  tracker.opts = opts
+
+  if (opts.url.indexOf('http') !== 0) opts.url = 'http://' + opts.url
+  const url = URL.parse(opts.url)
+
+  let counter = 0
+  let bytes = 0
+  let errors = 0
+  let timeouts = 0
+  let totalBytes = 0
+  let totalRequests = 0
+  let totalCompletedRequests = 0
+  let amount = opts.amount
+  let stop = false
+  let restart = true
+  let numRunning = opts.connections
+  let startTime = Date.now()
+
+  // copy over fields so that the client
+  // performs the right HTTP requests
+  url.pipelining = opts.pipelining
+  url.method = opts.method
+  url.body = opts.body
+  url.headers = opts.headers
+  url.setupClient = opts.setupClient
+  url.timeout = opts.timeout
+  url.requests = opts.requests
+  url.reconnectRate = opts.reconnectRate
+  url.responseMax = amount || opts.maxConnectionRequests || opts.maxOverallRequests
+  url.rate = opts.connectionRate || opts.overallRate
+  url.idReplacement = opts.idReplacement
+
+  let clients = []
+  initialiseClients(clients)
+
+  if (!amount) {
+    var stopTimer = setTimeout(() =&gt; {
+      stop = true
+    }, opts.duration * 1000)
+  }
+
+  tracker.stop = () =&gt; {
+    stop = true
+    restart = false
+  }
+
+  const interval = reInterval(tickInterval, 1000)
+
+  // put the start emit in a setImmediate so trackers can be added, etc.
+  setImmediate(() =&gt; { tracker.emit('start') })
+
+  function tickInterval () {
+    totalBytes += bytes
+    totalCompletedRequests += counter
+    requests.record(counter)
+    throughput.record(bytes)
+    counter = 0
+    bytes = 0
+    tracker.emit('tick')
+
+    if (stop) {
+      if (stopTimer) clearTimeout(stopTimer)
+      interval.clear()
+      clients.forEach((client) =&gt; client.destroy())
+      let result = {
+        title: opts.title,
+        url: opts.url,
+        requests: histAsObj(requests, totalCompletedRequests),
+        latency: addPercentiles(latencies, histAsObj(latencies)),
+        throughput: histAsObj(throughput, totalBytes),
+        errors: errors,
+        timeouts: timeouts,
+        duration: Math.round((Date.now() - startTime) / 1000),
+        start: new Date(startTime),
+        finish: new Date(),
+        connections: opts.connections,
+        pipelining: opts.pipelining,
+        'non2xx': statusCodes[0] + statusCodes[2] + statusCodes[3] + statusCodes[4]
+      }
+      result.requests.sent = totalRequests
+      statusCodes.forEach((code, index) =&gt; { result[(index + 1) + 'xx'] = code })
+
+      tracker.emit('done', result)
+      if (!opts.forever) cb(null, result)
+
+      // the restart function
+      setImmediate(() =&gt; {
+        if (opts.forever &amp;&amp; restart) {
+          stop = false
+          stopTimer = setTimeout(() =&gt; {
+            stop = true
+          }, opts.duration * 1000)
+          errors = 0
+          timeouts = 0
+          totalBytes = 0
+          totalRequests = 0
+          totalCompletedRequests = 0
+          statusCodes.fill(0)
+          requests.reset()
+          latencies.reset()
+          throughput.reset()
+          startTime = Date.now()
+
+          // reinitialise clients
+          clients = []
+          initialiseClients(clients)
+
+          interval.reschedule(1000)
+          tracker.emit('start')
+        }
+      })
+    }
+  }
+
+  function initialiseClients (clients) {
+    for (let i = 0; i &lt; opts.connections; i++) {
+      if (!amount &amp;&amp; !opts.maxConnectionRequests &amp;&amp; opts.maxOverallRequests) {
+        url.responseMax = distributeNums(opts.maxOverallRequests, i)
+      }
+      if (amount) {
+        url.responseMax = distributeNums(amount, i)
+      }
+      if (!opts.connectionRate &amp; ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.run.parseArguments" id="apidoc.element.autocannon.run.parseArguments">
+        function <span class="apidocSignatureSpan">autocannon.run.</span>parseArguments
+        <span class="apidocSignatureSpan">(argvs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseArguments(argvs) {
+  const argv = minimist(argvs, {
+    boolean: ['json', 'n', 'help', 'renderLatencyTable', 'renderProgressBar', 'forever', 'idReplacement'],
+    alias: {
+      connections: 'c',
+      pipelining: 'p',
+      timeout: 't',
+      duration: 'd',
+      amount: 'a',
+      json: 'j',
+      renderLatencyTable: ['l', 'latency'],
+      method: 'm',
+      headers: ['H', 'header'],
+      body: 'b',
+      bailout: 'B',
+      input: 'i',
+      maxConnectionRequests: 'M',
+      maxOverallRequests: 'O',
+      connectionRate: 'r',
+      overallRate: 'R',
+      reconnectRate: 'D',
+      renderProgressBar: 'progress',
+      title: 'T',
+      version: 'v',
+      forever: 'f',
+      idReplacement: 'I',
+      help: 'h'
+    },
+    default: {
+      connections: 10,
+      timeout: 10,
+      pipelining: 1,
+      duration: 10,
+      reconnectRate: 0,
+      renderLatencyTable: false,
+      renderProgressBar: true,
+      json: false,
+      forever: false,
+      method: 'GET',
+      idReplacement: false
+    }
+  })
+
+  argv.url = argv._[0]
+
+  // support -n to disable the progress bar and results table
+  if (argv.n) {
+    argv.renderProgressBar = false
+    argv.renderResultsTable = false
+  }
+
+  if (argv.version) {
+    console.log('autocannon', 'v' + require('./package').version)
+    console.log('node', process.version)
+    return
+  }
+
+  if (!argv.url || argv.help) {
+    console.error(help)
+    return
+  }
+
+  if (argv.input) {
+    argv.body = fs.readFileSync(argv.input)
+  }
+
+  if (argv.headers) {
+    if (!Array.isArray(argv.headers)) {
+      argv.headers = [argv.headers]
+    }
+
+    argv.headers = argv.headers.reduce((obj, header) =&gt; {
+      const index = header.indexOf('=')
+      obj[header.slice(0, index)] = header.slice(index + 1)
+      return obj
+    }, {})
+  }
+
+  return argv
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.run.start" id="apidoc.element.autocannon.run.start">
+        function <span class="apidocSignatureSpan">autocannon.run.</span>start
+        <span class="apidocSignatureSpan">(argv)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function start(argv) {
+  if (!argv) {
+    // we are printing the help
+    return
+  }
+
+  const tracker = run(argv)
+
+  tracker.on('done', (result) =&gt; {
+    if (argv.json) {
+      console.log(JSON.stringify(result))
+    }
+  })
+
+  tracker.on('error', (err) =&gt; {
+    if (err) {
+      throw err
+    }
+  })
+
+  // if not rendering json, or if std isn't a tty, track progress
+  if (!argv.json || !process.stdout.isTTY) track(tracker, argv)
+
+  process.once('SIGINT', () =&gt; {
+    tracker.stop()
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.autocannon.run.track" id="apidoc.element.autocannon.run.track">
+        function <span class="apidocSignatureSpan">autocannon.run.</span>track
+        <span class="apidocSignatureSpan">(instance, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function track(instance, opts) {
+  if (!instance) {
+    throw new Error('instance required for tracking')
+  }
+
+  opts = xtend(defaults, opts)
+
+  const chalk = new Chalk.constructor({ enabled: testColorSupport({ stream: opts.outputStream }) })
+  // this default needs to be set after chalk is setup, because chalk is now local to this func
+  opts.progressBarString = opts.progressBarString || `${chalk.green('running')} [:bar] :percent`
+
+  const iOpts = instance.opts
+  let durationProgressBar
+  let amountProgressBar
+
+  instance.on('start', () =&gt; {
+    if (opts.renderProgressBar) {
+      let msg = `${iOpts.connections} connections`
+
+      if (iOpts.pipelining &gt; 1) {
+        msg += ` with ${iOpts.pipelining} pipelining factor`
+      }
+
+      if (!iOpts.amount) {
+        logToStream(`Running ${iOpts.duration}s test @ ${iOpts.url}\n${msg}\n`)
+
+        durationProgressBar = trackDuration(instance, opts, iOpts)
+      } else {
+        logToStream(`Running ${iOpts.amount} requests test @ ${iOpts.url}\n${msg}\n`)
+
+        amountProgressBar = trackAmount(instance, opts, iOpts)
+      }
+    }
+  })
+
+  // add listeners for progress bar to instance here so they aren't
+  // added on restarting, causing listener leaks
+  // note: Attempted to curry the functions below, but that breaks the functionality
+  // as they use the scope/closure of the progress bar variables to allow them to be reset
+  if (opts.renderProgressBar &amp;&amp; opts.outputStream.isTTY) {
+    if (!iOpts.amount) { // duration progress bar
+      instance.on('tick', () =&gt; { durationProgressBar.tick() })
+      instance.on('done', () =&gt; { durationProgressBar.tick(iOpts.duration - 1) })
+      process.once('SIGINT', () =&gt; { durationProgressBar.tick(iOpts.duration - 1) })
+    } else { // amount progress bar
+      instance.on('response', () =&gt; { amountProgressBar.tick() })
+      instance.on('reqError', () =&gt; { amountProgressBar.tick() })
+      instance.on('done', () =&gt; { amountProgressBar.tick(iOpts.amount - 1) })
+      process.once('SIGINT', () =&gt; { amountProgressBar.tick(iOpts.amount - 1) })
+    }
+  }
+
+  instance.on('done', (result) =&gt; {
+    // the code below this `if` just renders the results table...
+    // if the user doesn't want to render the table, we can just return early
+    if (!opts.renderResultsTable) return
+
+    const out = table([
+      asColor(chalk.cyan, ['Stat', 'Avg', 'Stdev', 'Max']),
+      asRow(chalk.bold('Latency (ms)'), result.latency),
+      asRow(chalk.bold('Req/Sec'), result.requests),
+      asRow(chalk.bold('Bytes/Sec'), asBytes(result.throughput))
+    ], {
+      border: getBorderCharacters('void'),
+      columnDefault: {
+        paddingLeft: 0,
+        paddingRight: 1
+      },
+      drawHorizontalLine: () =&gt; false
+    })
+
+    logToStream(out)
+
+    if (opts.renderLatencyTable) {
+      const latency = table([
+        asColor(chalk.cyan, ['Percentile', 'Latency (ms)'])
+      ].concat(percentiles.map((perc) =&gt; {
+        const key = ('p' + perc).replace('.', '')
+        return [
+          chalk.bold('' + perc),
+          result.latency[key]
+        ]
+      })), {
+        border: getBorderCharacters('void'),
+        columnDefault: {
+          paddingLeft: 0,
+          paddingRight: 6
+        },
+        drawHorizontalLine: () =&gt; false
+      })
+
+      logToStream(latency)
+    }
+
+    if (result.non2xx) {
+      logToStream(`${result['2xx']} 2xx responses, ${result.non2xx} non 2xx responses`)
+    }
+    logToStream(`${format(result.requests.total)} requests in ${result.duration}s, ${prettyBytes(result.throughput.total)} read`)
+    if (result.errors) {
+      logToStream(`${format(result.errors)} errors (${format(result.timeouts)} timeouts)`)
+    }
+  })
+
+  function logToStream (msg) {
+    opts.outputStream.write(msg + '\n')
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* `forever`: A `Boolean` which allows you to setup an instance of autocannon that restarts indefinatly after emiting results with
+ the `done` event. Useful for efficiently restarting your instance. To stop running forever, you must cause a `SIGINT` or call the
+ `.stop()` function on your instance. _OPTIONAL_ default: `false`
+* `cb`: The callback which is called on completion of a benchmark. Takes the following params. _OPTIONAL_.
+* `err`: If there was an error encountered with the run.
+* `results`: The results of the run.
+
+**Returns** an instance/event emitter for tracking progress, etc.
+
+### autocannon.<span class="apidocCodeKeywordSpan">track</span>(instance[, opts])
+
+Track the progress of your autocannon, programmatically.
+
+* `instance`: The instance of autocannon. _REQUIRED_.
+* `opts`: Configuration options for tracking. This can have the following attibutes. _OPTIONAL_.
+* `outputStream`: The stream to output to. default: `process.stderr`.
+* `renderProgressBar`: A truthy value to enable the rendering of the progress bar. default: `true`.
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
